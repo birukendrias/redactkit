@@ -6,7 +6,9 @@ Runs in the browser. Nothing is uploaded.
 
 ## Use
 
-Open `index.html` or the live deploy. Paste text. Pick what to find. Hit Redact. Copy the clean output.
+Open the live site: https://redactkit-iambiruk.vercel.app
+
+Or open `index.html` locally. Paste text. Pick what to find. Hit Redact. Copy the clean output.
 
 ## Author
 
