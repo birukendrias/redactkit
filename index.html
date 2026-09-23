@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>redactkit — redact before you paste into AI</title>
+  <meta name="description" content="Strip emails, phones, cards, and secrets from text in the browser before you paste into ChatGPT or Cursor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="top">
+    <div>
+      <p class="brand">redactkit</p>
+      <p class="tag">Redact PII and secrets before you paste into an AI. Runs in your browser. Nothing is uploaded.</p>
+    </div>
+    <a class="home" href="https://iambiruk.vercel.app">IAMBIRUK</a>
+  </header>
+
+  <main>
+    <section class="panel">
+      <label for="in">Paste text</label>
+      <textarea id="in" rows="11" spellcheck="false" placeholder="Paste a prompt, email, log, or ticket…"></textarea>
+
+      <fieldset class="toggles">
+        <legend>Find</legend>
+        <label><input type="checkbox" data-kind="email" checked /> Emails</label>
+        <label><input type="checkbox" data-kind="phone" checked /> Phones</label>
+        <label><input type="checkbox" data-kind="card" checked /> Cards</label>
+        <label><input type="checkbox" data-kind="secret" checked /> Secrets</label>
+        <label><input type="checkbox" data-kind="ip" checked /> IPs</label>
+        <label><input type="checkbox" data-kind="url_token" checked /> URL tokens</label>
+      </fieldset>
+
+      <div class="row">
+        <button type="button" id="run">Redact</button>
+        <button type="button" id="copy" class="ghost">Copy clean</button>
+        <button type="button" id="clear" class="ghost">Clear</button>
+        <p id="stats" class="stats" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="panel">
+        <h2>Hits</h2>
+        <pre id="hits" class="box empty">Nothing yet.</pre>
+      </div>
+      <div class="panel">
+        <h2>Clean output</h2>
+        <pre id="out" class="box empty">Redacted text lands here.</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://github.com/birukendrias/redactkit">GitHub</a>
+    · local only · no network calls
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
